@@ -11,11 +11,12 @@ export default function UserMenu() {
   const email = useSelector(getUserEmail);
 
   return (
-    <Box sx={{display:'flex',alignItems:"center",gap:4, mx:"auto"}}>
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 4, mx: 'auto' }}>
       <Typography>Welcome , {email}</Typography>
       <Avatar alt="user avatar" src={avatar} sx={{ width: '32' }} />
 
       <Button
+        size="small"
         variant="contained"
         onClick={() => {
           dispatch(logOutUser());
