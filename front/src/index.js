@@ -10,7 +10,7 @@ import { App } from 'components/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="phonebook_client">
+    <BrowserRouter >
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Container component="div" maxWidth="xs">
