@@ -61,7 +61,7 @@ export const App = () => {
             />
             <Route
               path="*"
-              element={<Navigate to="contacts" replace={true} />}
+              element={<Navigate to="/contacts" replace={true} />}
             />
           </Route>
         </Routes>
