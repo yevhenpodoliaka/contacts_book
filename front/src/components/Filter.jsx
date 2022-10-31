@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter, getFilterValue } from '../redux/phoneBook/filterSlice';
-import { Paper, IconButton, InputBase } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { Paper,  InputBase } from '@mui/material';
 
 export default function Filter() {
   const value = useSelector(getFilterValue);
@@ -17,9 +16,6 @@ export default function Filter() {
         onChange={onChangeFilter}
         placeholder=" Find contacts by name "
       />
-      <IconButton sx={{ ml: 12}}>
-        <SearchIcon />
-      </IconButton>
     </Paper>
   );
 }

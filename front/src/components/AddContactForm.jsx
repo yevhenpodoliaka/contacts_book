@@ -5,7 +5,6 @@ import {
   useAddContactMutation,
   useGetContactsQuery,
 } from '../redux/phoneBook/phoneBookApi';
-
 import { Box, TextField, Button, } from '@mui/material';
 
 
@@ -17,12 +16,13 @@ export default function AddContactForm() {
   const [phone, setPhone] = useLocalStorage('phone', '');
 
   const [addContact, { isSuccess, data }] = useAddContactMutation();
+
   const { data: req } = useGetContactsQuery();
   const contacts = req?.contacts;
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success(`contact ${data.name} add in list`);
+      toast.success(`contact ${data.data.contact.name} add in list`);
     }
   }, [isSuccess, data]);
 
@@ -68,11 +68,9 @@ export default function AddContactForm() {
         margin="normal"
         required
         fullWidth
-        id="name"
         label="Name"
         name="name"
         value={name}
-        autoComplete="name"
         autoFocus
         onChange={handleChange}
       />
@@ -83,7 +81,6 @@ export default function AddContactForm() {
         label="Email"
         name="email"
         value={email}
-        autoComplete="email"
         onChange={handleChange}
       />
       <TextField
@@ -94,8 +91,6 @@ export default function AddContactForm() {
         value={phone}
         label="Phone"
         type="tel"
-        id="phone"
-        autoComplete="tel"
         onChange={handleChange}
       />
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>

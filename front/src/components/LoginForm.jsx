@@ -60,11 +60,9 @@ export default function RegisterForm() {
           margin="normal"
           required
           fullWidth
-          id="email"
           label="Email Address"
           name="email"
           value={email}
-          autoComplete="email"
           autoFocus
           onChange={handleChange}
         />
@@ -76,8 +74,6 @@ export default function RegisterForm() {
           value={password}
           label="Password"
           type="password"
-          id="password"
-          autoComplete="current-password"
           onChange={handleChange}
         />
         <Button

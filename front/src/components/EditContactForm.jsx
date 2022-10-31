@@ -1,11 +1,7 @@
 import { useEffect} from 'react';
 import useLocalStorage from 'hooks/useLockalStorage';
-
 import { useGetContactByIdQuery,useEditContactMutation } from '../redux/phoneBook/phoneBookApi';
 import { Box, TextField, Button, } from '@mui/material';
-
-
-
 
 export default function EditContactForm({ id }) {
   const [name, setName] = useLocalStorage('name', '');
@@ -23,9 +19,6 @@ export default function EditContactForm({ id }) {
          setPhone(data.data.contact.phone);
     }
   },[data, setEmail, setName, setPhone])
-
-
- 
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;
@@ -63,21 +56,17 @@ export default function EditContactForm({ id }) {
       <TextField
         margin="normal"
         fullWidth
-        id="name"
         label="Name"
         name="name"
         value={name}
-        autoComplete="name"
         onChange={handleChange}
       />
       <TextField
         margin="normal"
         fullWidth
-        id="email"
         label="Email"
         name="email"
         value={email}
-        autoComplete="email"
         onChange={handleChange}
       />
       <TextField
@@ -88,8 +77,6 @@ export default function EditContactForm({ id }) {
         value={phone}
         label="Phone"
         type="tel"
-        id="phone"
-        autoComplete="tel"
         onChange={handleChange}
       />
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>

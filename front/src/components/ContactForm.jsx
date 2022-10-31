@@ -62,22 +62,18 @@ export default function ContactForm() {
         margin="normal"
         required
         fullWidth
-        id="name"
         label="Name"
         name="name"
         value={name}
-        autoComplete="name"
         autoFocus
         onChange={handleChange}
       />
       <TextField
         margin="normal"
         fullWidth
-        id="email"
         label="Email"
         name="email"
         value={email}
-        autoComplete="email"
         onChange={handleChange}
       />
       <TextField
@@ -88,8 +84,6 @@ export default function ContactForm() {
         value={phone}
         label="Phone"
         type="tel"
-        id="phone"
-        autoComplete="tel"
         onChange={handleChange}
       />
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>

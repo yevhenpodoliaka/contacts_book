@@ -12,8 +12,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-
-
 export default function EditContactWindow({id}) {
   const [open, setOpen] = React.useState(false);
 
@@ -27,8 +25,13 @@ export default function EditContactWindow({id}) {
 
   return (
     <div>
-      <IconButton color="primary" aria-label="edit" onClick={handleClickOpen}>
-        <CreateIcon />
+      <IconButton
+        size="small"
+        color="primary"
+        aria-label="edit"
+        onClick={handleClickOpen}
+      >
+        <CreateIcon fontSize="inherit" />
       </IconButton>
 
       <Dialog
@@ -49,7 +52,7 @@ export default function EditContactWindow({id}) {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <EditContactForm id={ id} />
+        <EditContactForm id={id} />
       </Dialog>
     </div>
   );

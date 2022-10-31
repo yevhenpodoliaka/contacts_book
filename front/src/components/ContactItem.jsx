@@ -1,18 +1,8 @@
-import PropTypes from 'prop-types';
-
-import {
-  Paper,
-  Avatar,
-  IconButton,
-  Typography,
-  Box,
-
-} from '@mui/material';
+import { Paper, Avatar, IconButton, Typography, Box } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import EditContactWindow from './EditContactWindow';
-
 
 export default function ContactItem({
   id,
@@ -26,34 +16,54 @@ export default function ContactItem({
   const firstLetter = name[0];
   return (
     <Paper sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-      <Avatar sx={{ bgcolor: 'secondary.main' }}>{firstLetter}</Avatar>
-      <Box sx={{ flexGrow: 1, ml: 4 }}>
-        <Typography variant="body2">{name}</Typography>
-        <Typography variant="body2">{phone}</Typography>
-        <Typography variant="body2">{email}</Typography>
+      <Avatar
+        sx={{
+          bgcolor: 'secondary.main',
+          width: 24,
+          height: 24,
+        }}
+      >
+        {firstLetter}
+      </Avatar>
+      <Box sx={{ flexGrow: 1, ml: 2 }}>
+        <Typography variant="button" display="block">
+          {name}
+        </Typography>
+        <Typography variant="caption" display="block">
+          {email}
+        </Typography>
+        <Typography variant="overline" display="block">
+          {phone}
+        </Typography>
       </Box>
-      <IconButton
-    
-        aria-label="delete"
-        color="primary"
-        onClick={onDeleteContact}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
       >
-        <DeleteIcon />
-      </IconButton>
-      <EditContactWindow id={id} />
-      <IconButton
-        aria-label="favorite"
-        color="primary"
-        onClick={onToggleFavoriteContact}
-    
-      >
-        {favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-      </IconButton>
+        <IconButton
+          size="small"
+          aria-label="delete"
+          color="primary"
+          onClick={onDeleteContact}
+        >
+          <DeleteIcon fontSize="inherit" />
+        </IconButton>
+        <EditContactWindow id={id} />
+        <IconButton
+          size="small"
+          aria-label="favorite"
+          color="primary"
+          onClick={onToggleFavoriteContact}
+        >
+          {favorite ? (
+            <FavoriteIcon fontSize="inherit" />
+          ) : (
+            <FavoriteBorderIcon fontSize="inherit" />
+          )}
+        </IconButton>
+      </Box>
     </Paper>
   );
 }
-ContactItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
-  onDeleteContact: PropTypes.func.isRequired,
-};

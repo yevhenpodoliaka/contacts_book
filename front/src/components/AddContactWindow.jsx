@@ -37,7 +37,7 @@ export default function AddContactWindow() {
   };
 
   return (
-    <div>
+    <>
       <StyledFab color="secondary" aria-label="add" onClick={handleClickOpen}>
         <AddIcon />
       </StyledFab>
@@ -62,6 +62,6 @@ export default function AddContactWindow() {
         </AppBar>
         <AddContactForm />
       </Dialog>
-    </div>
+    </>
   );
 }
