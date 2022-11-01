@@ -2,7 +2,7 @@
   "name": "contacts_book",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": "https://yevhenpodoliaka.github.io/contacts_book/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

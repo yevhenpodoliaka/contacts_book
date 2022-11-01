@@ -11,7 +11,7 @@ import { App } from 'components/App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="contacts_book">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <CssBaseline />
