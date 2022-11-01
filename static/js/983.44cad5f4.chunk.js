@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcontacts_book=self.webpackChunkcontacts_book||[]).push([[983],{3983:function(t,e,n){n.r(e),n.d(e,{default:function(){return s}});var o=n(5048),c=n(1014),r=n(6015),i=n(4565),u=n(3329);function s(){var t=(0,o.v9)(c.M7);return(0,u.jsx)(r.Z,{mt:12,children:!t&&(0,u.jsx)(i.Z,{children:"Welcome!!! to work with the application you need to register or log in"})})}}}]);
+//# sourceMappingURL=983.44cad5f4.chunk.js.map
