@@ -2,7 +2,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://contacts--book.herokuapp.com/api';
+axios.defaults.baseURL = "https://contact-book-jub8.onrender.com/api";
 
 const token = {
   set(token) {

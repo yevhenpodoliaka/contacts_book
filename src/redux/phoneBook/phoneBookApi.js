@@ -19,52 +19,52 @@ const axiosBaseQuery =
   };
 
 export const phonebookApi = createApi({
-  reducerPath: 'phonebookApi',
+  reducerPath: "phonebookApi",
   baseQuery: axiosBaseQuery({
-    baseUrl: 'https://contacts--book.herokuapp.com/api/',
+    baseUrl: "https://contact-book-jub8.onrender.com/api/",
   }),
-  tagTypes: ['Contacts'],
-  endpoints: builder => ({
+  tagTypes: ["Contacts"],
+  endpoints: (builder) => ({
     getContacts: builder.query({
-      query: () => ({ url: 'contacts', method: 'get' }),
+      query: () => ({ url: "contacts", method: "get" }),
       keepUnusedDataFor: 1,
-      providesTags: ['Contacts'],
+      providesTags: ["Contacts"],
     }),
     getContactById: builder.query({
-      query: id => ({ url: `contacts/${id}`, method: 'get' }),
+      query: (id) => ({ url: `contacts/${id}`, method: "get" }),
       keepUnusedDataFor: 1,
-      providesTags: ['Contacts'],
+      providesTags: ["Contacts"],
     }),
     addContact: builder.mutation({
-      query: values => ({
-        url: 'contacts',
-        method: 'POST',
+      query: (values) => ({
+        url: "contacts",
+        method: "POST",
         data: values,
       }),
-      invalidatesTags: ['Contacts'],
+      invalidatesTags: ["Contacts"],
     }),
     deleteContact: builder.mutation({
-      query: id => ({
+      query: (id) => ({
         url: `contacts/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['Contacts'],
+      invalidatesTags: ["Contacts"],
     }),
     toggleFavoriteContact: builder.mutation({
       query: ({ id, data }) => ({
         url: `contacts/${id}/favorite`,
-        method: 'PATCH',
+        method: "PATCH",
         data,
       }),
-      invalidatesTags: ['Contacts'],
+      invalidatesTags: ["Contacts"],
     }),
     editContact: builder.mutation({
       query: ({ id, data }) => ({
         url: `contacts/${id}`,
-        method: 'PUT',
+        method: "PUT",
         data,
       }),
-      invalidatesTags: ['Contacts'],
+      invalidatesTags: ["Contacts"],
     }),
   }),
 });
