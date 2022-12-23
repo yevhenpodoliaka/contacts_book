@@ -12,7 +12,8 @@ import { List, Typography } from '@mui/material';
 export default function ContactList() {
 
   const { data } = useGetContactsQuery();
-  let contacts = data?.contacts;
+  
+  let contacts = data?.data.result;
 
   const [deleteContact] = useDeleteContactMutation();
   const [toggleFavoriteContact] = useToggleFavoriteContactMutation();
@@ -20,7 +21,7 @@ export default function ContactList() {
 
   const showFavoriteContacts = useSelector(getShowFavoriteValue)
   if (showFavoriteContacts) {
-     contacts = data?.contacts.filter(contact => contact.favorite);
+     contacts = data?.data.result.filter(contact => contact.favorite);
   }
   
   const getVisibleContacts = () => {
