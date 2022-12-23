@@ -21,7 +21,7 @@ export const registerUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response.data.message);
       return rejectWithValue(error.message);
     }
   }
@@ -35,7 +35,7 @@ export const logInUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response.data.message);
       return rejectWithValue(error.message);
     }
   }
