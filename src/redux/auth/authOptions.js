@@ -2,7 +2,9 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = "https://contact-book-jub8.onrender.com/api";
+
+
+axios.defaults.baseURL = 'https://contact-book-jub8.onrender.com/api/';
 
 const token = {
   set(token) {
@@ -17,7 +19,7 @@ export const registerUser = createAsyncThunk(
   'auth/register',
   async (credentials, { rejectWithValue }) => {
     try {
-      const {data} = await axios.post('/auth/register', credentials);
+      const { data } = await axios.post('/auth/register', credentials);
       token.set(data.token);
       return data;
     } catch (error) {

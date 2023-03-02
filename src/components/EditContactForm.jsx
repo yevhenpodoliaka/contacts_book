@@ -1,41 +1,36 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import useLocalStorage from 'hooks/useLockalStorage';
-import { useGetContactByIdQuery,useEditContactMutation } from '../redux/phoneBook/phoneBookApi';
-import { Box, TextField, Button, } from '@mui/material';
+import {
+  useGetContactByIdQuery,
+  useEditContactMutation,
+} from '../redux/phoneBook/phoneBookApi';
+import { Box, TextField, Button } from '@mui/material';
 
 export default function EditContactForm({ id }) {
-  const [name, setName] = useLocalStorage('name', '');
-  const [email, setEmail] = useLocalStorage('email', '');
-  const [phone, setPhone] = useLocalStorage('phone', '');
+  const [name, setName] = useLocalStorage('editedName', '');
+  const [email, setEmail] = useLocalStorage('editedEmail', '');
+  const [phone, setPhone] = useLocalStorage('editedPhone', '');
 
   const { data } = useGetContactByIdQuery(id);
-  const [editContact, { isSuccess,isError, error }] =
-    useEditContactMutation();
-
-console.log('isError', isError);
-console.log('error', error);
+  const [editContact, { isSuccess, isError, error }] = useEditContactMutation();
 
   useEffect(() => {
     if (data) {
-         setName(data.data.contact.name);
-         setEmail(data.data.contact.email);
-         setPhone(data.data.contact.phone);
+      setName(data.data.contact.name);
+      setEmail(data.data.contact.email);
+      setPhone(data.data.contact.phone);
     }
-        if (isSuccess) {
-          toast.success(`contact ${data.data.contact.name} changed `);
-        }
-        if (isError) {
-          toast.error(`Error: ${error.data.message} `);
-          console.log(error.data.message);
-        }
-    return () => {
-      console.log("unmount")
-          setName('');
-          setEmail('');
-          setPhone('');
+  }, [data, setEmail, setName, setPhone]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(`contact ${data.data.contact.name} changed `);
     }
-  },[data, error, isError, isSuccess, setEmail, setName, setPhone])
+    if (isError) {
+      toast.error(`Error: ${error.data.message} `);
+    }
+  }, [data, error, isError, isSuccess]);
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;
@@ -57,10 +52,7 @@ console.log('error', error);
 
   const handleSubmit = e => {
     e.preventDefault();
-    editContact({id,data:{name,email,phone}});
-    setName('');
-    setEmail('');
-    setPhone('');
+    editContact({ id, data: { name, email, phone } });
   };
 
   return (

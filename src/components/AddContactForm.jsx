@@ -45,7 +45,7 @@ export default function AddContactForm() {
         break;
     }
   };
-  const hasContact = () => {
+  const addNewContact = () => {
     const contactName = contacts?.find(
       el => el.name.toLowerCase() === name.toLowerCase()
     );
@@ -66,7 +66,7 @@ export default function AddContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    hasContact();
+    addNewContact();
   };
 
   return (

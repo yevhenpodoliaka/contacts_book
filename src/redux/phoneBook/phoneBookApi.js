@@ -16,13 +16,12 @@ const axiosBaseQuery =
         },
       };
     }
-    };
-  //http://localhost:3333
-// "https://contact-book-jub8.onrender.com/api/"
+  };
+
 export const phonebookApi = createApi({
   reducerPath: 'phonebookApi',
   baseQuery: axiosBaseQuery({
-    baseUrl: 'http://localhost:3333/api/',
+    baseUrl: 'https://contact-book-jub8.onrender.com/api/',
   }),
   tagTypes: ['Contacts'],
   endpoints: builder => ({
