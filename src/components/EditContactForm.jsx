@@ -1,4 +1,5 @@
-import { useEffect} from 'react';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 import useLocalStorage from 'hooks/useLockalStorage';
 import { useGetContactByIdQuery,useEditContactMutation } from '../redux/phoneBook/phoneBookApi';
 import { Box, TextField, Button, } from '@mui/material';
@@ -9,8 +10,11 @@ export default function EditContactForm({ id }) {
   const [phone, setPhone] = useLocalStorage('phone', '');
 
   const { data } = useGetContactByIdQuery(id);
-  const [editContact] = useEditContactMutation()
+  const [editContact, { isSuccess,isError, error }] =
+    useEditContactMutation();
 
+console.log('isError', isError);
+console.log('error', error);
 
   useEffect(() => {
     if (data) {
@@ -18,7 +22,20 @@ export default function EditContactForm({ id }) {
          setEmail(data.data.contact.email);
          setPhone(data.data.contact.phone);
     }
-  },[data, setEmail, setName, setPhone])
+        if (isSuccess) {
+          toast.success(`contact ${data.data.contact.name} changed `);
+        }
+        if (isError) {
+          toast.error(`Error: ${error.data.message} `);
+          console.log(error.data.message);
+        }
+    return () => {
+      console.log("unmount")
+          setName('');
+          setEmail('');
+          setPhone('');
+    }
+  },[data, error, isError, isSuccess, setEmail, setName, setPhone])
 
   function handleChange(e) {
     const { name, value } = e.currentTarget;

@@ -9,8 +9,9 @@ import {
 } from './authOptions';
 
 const initialState = {
-  user: { name: null, email: null, },
-  token: null ,
+  user: { name: null, email: null },
+  token: null,
+  isLoading: false,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
 };
@@ -19,28 +20,34 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [registerUser.pending](state) {
+      state.isLoading = true;
+    },
     [registerUser.fulfilled](state, action) {
       state.user = action.payload.data;
       state.token = action.payload.token;
+      state.isLoading = false;
       state.isLoggedIn = true;
     },
-
+    [logInUser.pending](state) {
+      state.isLoading = true;
+    },
     [logInUser.fulfilled](state, action) {
       state.user = action.payload.data;
       state.token = action.payload.token;
+      state.isLoading = false;
       state.isLoggedIn = true;
     },
-
     [logOutUser.fulfilled](state) {
       state.user = { name: null, email: null };
-      state.token=null
+      state.token = null;
       state.isLoggedIn = false;
     },
     [fetchCurrentUser.pending](state) {
       state.isFetchingCurrentUser = true;
     },
     [fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload.data
+      state.user = action.payload.data;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },

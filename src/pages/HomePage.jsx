@@ -9,14 +9,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Box my={12}>
+      <>
         {!isLoggedIn && (
           <Typography>
             Welcome!!! to work with the application you need to register or log
             in
           </Typography>
         )}
-      </Box>
+      </>
       <Typography variant="button" display="block">
         Tools in this app
       </Typography>

@@ -6,9 +6,11 @@ export default function Layout() {
   return (
     <>
       <TopAppBar />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+      <main style={{padding:"15px", margin:"65px 0"}}>
+        <Suspense fallback={<p>LOADING...</p>}>
+          <Outlet />
+        </Suspense>
+      </main>
     </>
   );
 }
