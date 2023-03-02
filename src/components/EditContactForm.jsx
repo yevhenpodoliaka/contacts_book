@@ -14,7 +14,6 @@ export default function EditContactForm({ id }) {
 
   const { data } = useGetContactByIdQuery(id);
   const [editContact, { isSuccess, isError, error }] = useEditContactMutation();
-  console.log(data);
 
   useEffect(() => {
     if (data) {
