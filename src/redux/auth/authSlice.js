@@ -29,6 +29,9 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.isLoggedIn = true;
     },
+    [registerUser.rejected](state) {
+      state.isLoading = false;
+    },
     [logInUser.pending](state) {
       state.isLoading = true;
     },
@@ -38,6 +41,9 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.isLoggedIn = true;
     },
+    [logInUser.rejected](state) {
+      state.isLoading = false;
+    },
     [logOutUser.fulfilled](state) {
       state.user = { name: null, email: null };
       state.token = null;
@@ -45,13 +51,16 @@ const authSlice = createSlice({
     },
     [fetchCurrentUser.pending](state) {
       state.isFetchingCurrentUser = true;
+      state.isLoading = true;
     },
     [fetchCurrentUser.fulfilled](state, action) {
       state.user = action.payload.data;
+      state.isLoading = false;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
     [fetchCurrentUser.rejected](state) {
+      state.isLoading = false;
       state.isFetchingCurrentUser = false;
     },
   },

@@ -8,9 +8,8 @@ import Slide from '@mui/material/Slide';
 import { styled } from '@mui/material/styles';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
- 
-import AddContactForm from "../components/AddContactForm"
 
+import AddContactForm from '../components/AddContactForm';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -60,7 +59,7 @@ export default function AddContactWindow() {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <AddContactForm toggleOpen={setOpen } />
+        <AddContactForm toggleOpen={setOpen} />
       </Dialog>
     </>
   );

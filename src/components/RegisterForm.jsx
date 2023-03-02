@@ -10,8 +10,8 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { registerUser } from '../redux/auth/authOptions';
 
 export default function LoginForm() {
@@ -20,7 +20,7 @@ export default function LoginForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
@@ -34,16 +34,19 @@ export default function LoginForm() {
     }
   };
   const handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
+    e.stopPropagation()
     if (!name || !email || !password) {
       toast.error('all form fields must be filled out');
-      return;
     }
     dispatch(registerUser({ name, email, password }));
+    console.log(name, email, password)
+    if (isLoggedIn) {
+          setName('');
+          setEmail('');
+          setPassword('');
+    }
 
-    setName('');
-    setEmail('');
-    setPassword('');
   };
 
   return (

@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast';
 import * as React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { useState } from 'react';
 import { logInUser } from '../redux/auth/authOptions';
 import { Link as RouterLink } from 'react-router-dom';
@@ -13,10 +14,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 
 export default function RegisterForm() {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -36,8 +39,11 @@ export default function RegisterForm() {
       return;
     }
     dispatch(logInUser({ email, password }));
-    setEmail('');
-    setPassword('');
+    if (isLoggedIn) {
+          setEmail('');
+          setPassword('');
+    }
+
   };
 
   return (

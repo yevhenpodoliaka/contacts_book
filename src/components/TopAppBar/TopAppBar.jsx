@@ -5,7 +5,6 @@ import UserMenu from './UserMenu';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 
-
 export default function TopAppBar() {
   const isLoggedIn = useSelector(getIsLoggedIn);
 
@@ -22,7 +21,6 @@ export default function TopAppBar() {
           mx: 'auto',
           gap: 8,
         }}
-       
       >
         <Toolbar>{isLoggedIn ? <UserMenu /> : <AuthNav />}</Toolbar>
       </AppBar>

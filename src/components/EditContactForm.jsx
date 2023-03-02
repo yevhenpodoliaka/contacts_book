@@ -14,6 +14,7 @@ export default function EditContactForm({ id }) {
 
   const { data } = useGetContactByIdQuery(id);
   const [editContact, { isSuccess, isError, error }] = useEditContactMutation();
+  console.log(data);
 
   useEffect(() => {
     if (data) {
@@ -52,6 +53,17 @@ export default function EditContactForm({ id }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (
+      data.data.contact.name === name &&
+      data.data.contact.email === email &&
+      data.data.contact.phone === phone
+    ) {
+      toast(`contact is not changed `);
+      return
+    } else {
+       editContact({ id, data: { name, email, phone } });
+    }
+ 
     editContact({ id, data: { name, email, phone } });
   };
 

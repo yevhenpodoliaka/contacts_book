@@ -9,7 +9,6 @@ import { getIsFetchingCurrentUser } from '../redux/auth/authSelector';
 import PrivateRoute from '../routes/PrivateRoute';
 import PublicRoute from '../routes/PublicRoute';
 
-
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ContactListPage = lazy(() => import('../pages/ContactsListPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
@@ -28,7 +27,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route
-              index="/"
+              index
               element={
                 <PublicRoute restricted>
                   <HomePage />

@@ -53,9 +53,11 @@ export default function AddContactForm() {
 
     if (contactName) {
       toast.error(`${name} is already in contacts`);
+      return;
     }
     if (contactPhone) {
       toast.error(`contact with ${phone} number is already in contacts`);
+      return;
     } else {
       addContact({ name, phone, email });
       setName('');
@@ -66,7 +68,11 @@ export default function AddContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addNewContact();
+    if (name && phone) {
+      addNewContact();
+    } else {
+      toast('name and phone must have in form');
+    }
   };
 
   return (

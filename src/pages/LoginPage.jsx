@@ -8,11 +8,8 @@ export default function LoginPage() {
 
   return (
     <>
-      {isLoading ? (
-        <Typography>Please await is Loading...</Typography>
-      ) : (
-        <LoginForm />
-      )}
+      {isLoading && <Typography>Please await is Loading...</Typography>}
+      <LoginForm />
     </>
   );
 }

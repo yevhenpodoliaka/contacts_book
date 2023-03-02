@@ -8,8 +8,6 @@ import {
 
 import { Box, TextField, Button } from '@mui/material';
 
-
-
 export default function ContactForm() {
   const [name, setName] = useLocalStorage('name', '');
   const [email, setEmail] = useLocalStorage('email', '');
