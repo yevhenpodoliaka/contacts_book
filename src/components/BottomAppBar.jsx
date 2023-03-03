@@ -1,16 +1,30 @@
-import { AppBar, Toolbar, IconButton } from '@mui/material';
+import * as React from 'react';
+import { AppBar, Toolbar, IconButton, Fab } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import AddContactWindow from './AddContactWindow';
+import AddIcon from '@mui/icons-material/Add';
+import { styled } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   toggleShowFavorite,
   getShowFavoriteValue,
 } from '../redux/phoneBook/filterSlice';
 
-export default function BottomAppBar() {
+
+const StyledFab = styled(Fab)({
+  position: 'absolute',
+  zIndex: 1,
+  top: -30,
+  left: 0,
+  right: 0,
+  margin: '0 auto',
+});
+
+export default function BottomAppBar({ onOpenModal }) {
+  
   const dispatch = useDispatch();
   const isShowFavoriteContact = useSelector(getShowFavoriteValue);
+  
   return (
     <>
       <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
@@ -23,7 +37,14 @@ export default function BottomAppBar() {
           >
             {isShowFavoriteContact ? <ImportContactsIcon /> : <FavoriteIcon />}
           </IconButton>
-          <AddContactWindow />
+
+          <StyledFab
+            color="secondary"
+            aria-label="add"
+            onClick={onOpenModal}
+          >
+            <AddIcon />
+          </StyledFab>
         </Toolbar>
       </AppBar>
     </>
