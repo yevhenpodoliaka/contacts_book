@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter, getFilterValue } from '../redux/phoneBook/filterSlice';
-import { Paper,  InputBase } from '@mui/material';
+import { Paper, InputBase } from '@mui/material';
 
 export default function Filter() {
   const value = useSelector(getFilterValue);

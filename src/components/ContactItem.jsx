@@ -1,4 +1,10 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
+import {
+  useDeleteContactMutation,
+  useToggleFavoriteContactMutation,
+} from '../redux/phoneBook/phoneBookApi';
+
 import { Paper, Avatar, IconButton, Typography, Box } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -8,20 +14,53 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Modal from './Modal';
 import EditContactForm from './EditContactForm';
 
-export default function ContactItem({
-  id,
-  name,
-  phone,
-  email,
-  onDeleteContact,
-  favorite,
-  onToggleFavoriteContact,
-}) {
-  const [modalIsOpen, setModalIsOpen] = React.useState(false);
+export default function ContactItem({ id, name, phone, email, favorite }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
 
+  const [
+    deleteContact,
+    {
+      isSuccess: isSuccessDeleted,
+      error: isErrorDeleted,
+      isLoading: isDeleted,
+    },
+  ] = useDeleteContactMutation();
+  const [
+    toggleFavoriteContact,
+    {
+      isSuccess: isSuccessToggledFavorite,
+      error: isErrorToggledFavorite,
+      isLoading: isToggledFavorite,
+    },
+  ] = useToggleFavoriteContactMutation();
+
+  useEffect(() => {
+    if (isSuccessDeleted) {
+      toast.success(`contact ${name} is deleted`);
+    }
+    if (isSuccessToggledFavorite) {
+      toast.success(`status contact ${name} "is favorite" changed`);
+    }
+    if (isErrorDeleted) {
+      toast.error(`an error occurred while deleting a contact${name}`);
+    }
+    if (isErrorToggledFavorite) {
+      toast.error(
+        `an error occurred while changing the status of a contact${name}`
+      );
+    }
+  }, [
+    isErrorDeleted,
+    isErrorToggledFavorite,
+    isSuccessDeleted,
+    isSuccessToggledFavorite,
+    name,
+  ]);
+
+  console.log('item');
   const firstLetter = name[0];
   return (
     <>
@@ -56,7 +95,8 @@ export default function ContactItem({
             size="small"
             aria-label="delete"
             color="primary"
-            onClick={onDeleteContact}
+            onClick={() => deleteContact(id)}
+            disabled={isDeleted}
           >
             <DeleteIcon fontSize="inherit" />
           </IconButton>
@@ -74,7 +114,13 @@ export default function ContactItem({
             size="small"
             aria-label="favorite"
             color="primary"
-            onClick={onToggleFavoriteContact}
+            disabled={isToggledFavorite}
+            onClick={() =>
+              toggleFavoriteContact({
+                id: id,
+                data: { favorite: !favorite },
+              })
+            }
           >
             {favorite ? (
               <FavoriteIcon fontSize="inherit" />

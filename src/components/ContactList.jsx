@@ -4,21 +4,12 @@ import {
   getFilterValue,
   getShowFavoriteValue,
 } from '../redux/phoneBook/filterSlice';
-import {
-  useGetContactsQuery,
-  useDeleteContactMutation,
-  useToggleFavoriteContactMutation,
-} from '../redux/phoneBook/phoneBookApi';
 
 import { List, Typography } from '@mui/material';
 
-export default function ContactList() {
-  const { data } = useGetContactsQuery();
-
-  let contacts = data?.data.result;
-
-  const [deleteContact] = useDeleteContactMutation();
-  const [toggleFavoriteContact] = useToggleFavoriteContactMutation();
+export default function ContactList({ data }) {
+  let contacts = data;
+  console.log('list');
   const filterValue = useSelector(getFilterValue);
 
   const showFavoriteContacts = useSelector(getShowFavoriteValue);
@@ -46,13 +37,6 @@ export default function ContactList() {
               phone={phone}
               email={email}
               favorite={favorite}
-              onDeleteContact={() => deleteContact(_id)}
-              onToggleFavoriteContact={() =>
-                toggleFavoriteContact({
-                  id: _id,
-                  data: { favorite: !favorite },
-                })
-              }
             />
           ))
         ) : (

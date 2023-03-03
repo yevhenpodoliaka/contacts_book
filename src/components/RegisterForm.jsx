@@ -40,7 +40,6 @@ export default function LoginForm() {
       toast.error('all form fields must be filled out');
     }
     dispatch(registerUser({ name, email, password }));
-    console.log(name, email, password)
     if (isLoggedIn) {
           setName('');
           setEmail('');
@@ -63,7 +62,7 @@ export default function LoginForm() {
       <Typography component="h1" variant="h5">
         Sign Up
       </Typography>
-      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
         <TextField
           margin="normal"
           required
@@ -83,6 +82,7 @@ export default function LoginForm() {
           label="Email Address"
           name="email"
           value={email}
+          type="email"
           autoFocus
           onChange={handleChange}
         />
