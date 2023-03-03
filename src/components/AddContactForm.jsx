@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useLocalStorage from 'hooks/useLockalStorage';
+import useLocalStorage from 'hooks/useLocalStorage';
 import toast from 'react-hot-toast';
 import {
   useAddContactMutation,

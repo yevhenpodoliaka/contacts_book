@@ -6,6 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useToggleFavoriteContactMutation } from '../redux/phoneBook/phoneBookApi';
 
 const ToggledFavoriteButton = ({ id, name, favorite }) => {
+
   const [
     toggleFavoriteContact,
     {

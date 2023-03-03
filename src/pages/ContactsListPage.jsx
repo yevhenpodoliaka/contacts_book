@@ -6,22 +6,25 @@ import BottomAppBar from 'components/BottomAppBar';
 import Modal from 'components/Modal';
 import AddContactForm from 'components/AddContactForm';
 
-export default function ContactListPage() {
+const ContactListPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
-    const { data } = useGetContactsQuery();
+  const { data } = useGetContactsQuery();
   const contacts = data?.data.result;
-  
+
   return (
     <>
       {contacts?.length > 5 && <Filter />}
       <ContactList data={contacts} />
       <BottomAppBar onOpenModal={toggleModal} />
-      <Modal isOpen={modalIsOpen} toggleIsOpen={toggleModal}>
-        <AddContactForm />
-      </Modal>
+      {modalIsOpen && (
+        <Modal isOpen={modalIsOpen} toggleIsOpen={toggleModal}>
+          <AddContactForm />
+        </Modal>
+      )}
     </>
   );
-}
+};
+export default ContactListPage;

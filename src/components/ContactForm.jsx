@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useLocalStorage from 'hooks/useLockalStorage';
+import useLocalStorage from 'hooks/useLocalStorage';
 import toast from 'react-hot-toast';
 import {
   useAddContactMutation,
@@ -12,7 +12,6 @@ const ContactForm = () => {
   const [name, setName] = useLocalStorage('name', '');
   const [email, setEmail] = useLocalStorage('email', '');
   const [phone, setPhone] = useLocalStorage('phone', '');
-
   const [addContact, { isSuccess, data }] = useAddContactMutation();
   const { data: req } = useGetContactsQuery();
   const contacts = req?.contacts;

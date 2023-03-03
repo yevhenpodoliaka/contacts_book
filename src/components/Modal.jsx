@@ -8,6 +8,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 const Modal = ({ children, isOpen, toggleIsOpen }) => {
+
   return (
     <Dialog
       open={isOpen}

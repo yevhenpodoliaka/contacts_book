@@ -2,7 +2,8 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import TopAppBar from './TopAppBar/TopAppBar';
 
- const  Layout=()=> {
+const Layout = () => {
+  
   return (
     <>
       <TopAppBar />

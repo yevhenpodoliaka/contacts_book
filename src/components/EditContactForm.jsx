@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
-import useLocalStorage from 'hooks/useLockalStorage';
+import useLocalStorage from 'hooks/useLocalStorage';
 import {
   useGetContactByIdQuery,
   useEditContactMutation,
@@ -11,7 +11,7 @@ const EditContactForm = ({ id }) => {
   const [name, setName] = useLocalStorage('editedName', '');
   const [email, setEmail] = useLocalStorage('editedEmail', '');
   const [phone, setPhone] = useLocalStorage('editedPhone', '');
-
+  console.log('EditContactForm');
   const { data } = useGetContactByIdQuery(id);
   const [editContact, { isSuccess, isError, error }] = useEditContactMutation();
 

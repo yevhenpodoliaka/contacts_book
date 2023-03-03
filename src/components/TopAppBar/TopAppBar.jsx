@@ -7,7 +7,6 @@ import Toolbar from '@mui/material/Toolbar';
 
 const TopAppBar = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
-
   return (
     <>
       <AppBar

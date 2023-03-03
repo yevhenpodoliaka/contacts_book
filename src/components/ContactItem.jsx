@@ -1,13 +1,14 @@
 import { useState } from 'react';
+
 import { Paper, Avatar, IconButton, Typography, Box } from '@mui/material';
 
 import CreateIcon from '@mui/icons-material/Create';
-import ToggledFavoriteButton from './ToggledFavorite';
+import ToggledFavoriteButton from './ToggledFavoriteButton';
 import DeleteContactButton from './DeleteContactButton';
 import Modal from './Modal';
 import EditContactForm from './EditContactForm';
 
- const ContactItem =({ id, name, phone, email, favorite })=> {
+const ContactItem = ({ id, name, phone, email, favorite }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
@@ -57,10 +58,12 @@ import EditContactForm from './EditContactForm';
           <ToggledFavoriteButton id={id} favorite={favorite} name={name} />
         </Box>
       </Paper>
-      <Modal isOpen={modalIsOpen} toggleIsOpen={toggleModal}>
-        <EditContactForm id={id} />
-      </Modal>
+      {modalIsOpen && (
+        <Modal isOpen={modalIsOpen} toggleIsOpen={toggleModal}>
+          <EditContactForm id={id} />
+        </Modal>
+      )}
     </>
   );
-}
-export default ContactItem
+};
+export default ContactItem;

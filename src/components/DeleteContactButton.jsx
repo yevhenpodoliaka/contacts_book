@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { useDeleteContactMutation } from '../redux/phoneBook/phoneBookApi';
 
 const DeleteContactButton = ({ id, name }) => {
+
   const [
     deleteContact,
     {
@@ -35,5 +36,6 @@ const DeleteContactButton = ({ id, name }) => {
     </IconButton>
   );
 };
+
 
 export default DeleteContactButton;

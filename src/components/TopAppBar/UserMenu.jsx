@@ -8,7 +8,6 @@ import { Button, Typography, Avatar, Box } from '@mui/material';
 const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(getUserName);
-
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', mx: 'auto', gap: 8 }}>
       <Avatar alt="user avatar" src={avatar} sx={{ width: '32' }} />

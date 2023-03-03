@@ -7,14 +7,15 @@ import {
 
 import { List, Typography } from '@mui/material';
 
- const  ContactList=({ data })=> {
+const ContactList = ({ data }) => {
   let contacts = data;
-  console.log('list');
+
+
   const filterValue = useSelector(getFilterValue);
 
   const showFavoriteContacts = useSelector(getShowFavoriteValue);
   if (showFavoriteContacts) {
-    contacts = data?.data.result.filter(contact => contact.favorite);
+    contacts = contacts.filter(contact => contact.favorite);
   }
 
   const getVisibleContacts = () => {
@@ -48,5 +49,5 @@ import { List, Typography } from '@mui/material';
       )}
     </>
   );
-}
-export default ContactList
+};
+export default ContactList;
