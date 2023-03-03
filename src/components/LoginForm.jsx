@@ -13,8 +13,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 
-export default function RegisterForm() {
-
+const LoginForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,10 +39,9 @@ export default function RegisterForm() {
     }
     dispatch(logInUser({ email, password }));
     if (isLoggedIn) {
-          setEmail('');
-          setPassword('');
+      setEmail('');
+      setPassword('');
     }
-
   };
 
   return (
@@ -60,7 +58,7 @@ export default function RegisterForm() {
       <Typography component="h1" variant="h5">
         Sign in
       </Typography>
-      <Box component="form" onSubmit={handleSubmit}  sx={{ mt: 1 }}>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
         <TextField
           margin="normal"
           required
@@ -96,4 +94,5 @@ export default function RegisterForm() {
       </Box>
     </Box>
   );
-}
+};
+export default LoginForm;

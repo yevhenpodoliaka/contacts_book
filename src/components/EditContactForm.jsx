@@ -7,7 +7,7 @@ import {
 } from '../redux/phoneBook/phoneBookApi';
 import { Box, TextField, Button } from '@mui/material';
 
-export default function EditContactForm({ id }) {
+const EditContactForm = ({ id }) => {
   const [name, setName] = useLocalStorage('editedName', '');
   const [email, setEmail] = useLocalStorage('editedEmail', '');
   const [phone, setPhone] = useLocalStorage('editedPhone', '');
@@ -58,11 +58,11 @@ export default function EditContactForm({ id }) {
       data.data.contact.phone === phone
     ) {
       toast(`contact is not changed `);
-      return
+      return;
     } else {
-       editContact({ id, data: { name, email, phone } });
+      editContact({ id, data: { name, email, phone } });
     }
- 
+
     editContact({ id, data: { name, email, phone } });
   };
 
@@ -104,4 +104,6 @@ export default function EditContactForm({ id }) {
       </Button>
     </Box>
   );
-}
+};
+
+export default EditContactForm;

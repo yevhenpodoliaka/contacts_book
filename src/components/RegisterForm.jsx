@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/auth/authSelector';
 import { registerUser } from '../redux/auth/authOptions';
 
-export default function LoginForm() {
+ const RegisterForm=()=> {
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
@@ -111,3 +111,5 @@ export default function LoginForm() {
     </Box>
   );
 }
+
+export default RegisterForm

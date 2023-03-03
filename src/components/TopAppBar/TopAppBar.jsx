@@ -5,7 +5,7 @@ import UserMenu from './UserMenu';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 
-export default function TopAppBar() {
+const TopAppBar = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   return (
@@ -26,4 +26,5 @@ export default function TopAppBar() {
       </AppBar>
     </>
   );
-}
+};
+export default TopAppBar;

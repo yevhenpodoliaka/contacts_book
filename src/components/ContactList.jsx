@@ -7,7 +7,7 @@ import {
 
 import { List, Typography } from '@mui/material';
 
-export default function ContactList({ data }) {
+ const  ContactList=({ data })=> {
   let contacts = data;
   console.log('list');
   const filterValue = useSelector(getFilterValue);
@@ -49,3 +49,4 @@ export default function ContactList({ data }) {
     </>
   );
 }
+export default ContactList

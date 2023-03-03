@@ -7,7 +7,7 @@ import {
 } from '../redux/phoneBook/phoneBookApi';
 import { Box, TextField, Button } from '@mui/material';
 
-export default function AddContactForm() {
+const AddContactForm = () => {
   const [name, setName] = useLocalStorage('name', '');
   const [email, setEmail] = useLocalStorage('email', '');
   const [phone, setPhone] = useLocalStorage('phone', '');
@@ -116,4 +116,6 @@ export default function AddContactForm() {
       </Button>
     </Box>
   );
-}
+};
+
+export default AddContactForm;

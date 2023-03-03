@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import { NavLink as RouterLink } from 'react-router-dom';
 
-export default function AuthNav() {
+const AuthNav = () => {
   return (
     <>
       <Button
@@ -30,7 +30,7 @@ export default function AuthNav() {
       </Button>
     </>
   );
-}
+};
 
 const StyledNavLink = {
   whiteSpace: 'nowrap',
@@ -45,3 +45,5 @@ const StyledNavLink = {
     color: 'secondary.main',
   },
 };
+
+export default AuthNav;

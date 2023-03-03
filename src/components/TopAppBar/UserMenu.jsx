@@ -5,12 +5,12 @@ import { logOutUser } from 'redux/auth/authOptions';
 import avatar from '../../images/avatar.png';
 import { Button, Typography, Avatar, Box } from '@mui/material';
 
-export default function UserMenu() {
+const UserMenu = () => {
   const dispatch = useDispatch();
   const name = useSelector(getUserName);
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', mx: 'auto',gap:8 }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', mx: 'auto', gap: 8 }}>
       <Avatar alt="user avatar" src={avatar} sx={{ width: '32' }} />
       <Typography variant="overline" display="block">
         {name}
@@ -26,4 +26,6 @@ export default function UserMenu() {
       </Button>
     </Box>
   );
-}
+};
+
+export default UserMenu;

@@ -10,7 +10,6 @@ import {
   getShowFavoriteValue,
 } from '../redux/phoneBook/filterSlice';
 
-
 const StyledFab = styled(Fab)({
   position: 'absolute',
   zIndex: 1,
@@ -20,11 +19,10 @@ const StyledFab = styled(Fab)({
   margin: '0 auto',
 });
 
-export default function BottomAppBar({ onOpenModal }) {
-  
+const BottomAppBar = ({ onOpenModal }) => {
   const dispatch = useDispatch();
   const isShowFavoriteContact = useSelector(getShowFavoriteValue);
-  
+
   return (
     <>
       <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
@@ -38,15 +36,13 @@ export default function BottomAppBar({ onOpenModal }) {
             {isShowFavoriteContact ? <ImportContactsIcon /> : <FavoriteIcon />}
           </IconButton>
 
-          <StyledFab
-            color="secondary"
-            aria-label="add"
-            onClick={onOpenModal}
-          >
+          <StyledFab color="secondary" aria-label="add" onClick={onOpenModal}>
             <AddIcon />
           </StyledFab>
         </Toolbar>
       </AppBar>
     </>
   );
-}
+};
+
+export default BottomAppBar;
