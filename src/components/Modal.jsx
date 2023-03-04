@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { IconButton, Dialog, Slide } from '@mui/material';
+import { IconButton, Dialog} from '@mui/material';
 
 import CloseIcon from '@mui/icons-material/Close';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const Modal = ({ children, isOpen,closeModal, setContactId }) => {
   const onClose = () => {
@@ -13,7 +10,7 @@ const Modal = ({ children, isOpen,closeModal, setContactId }) => {
     closeModal();
   };
   return (
-    <Dialog open={isOpen} onClose={onClose} TransitionComponent={Transition}>
+    <Dialog open={isOpen} onClose={onClose} >
       <IconButton
         sx={{ width: '25px', height: '25px' }}
         color="inherit"
