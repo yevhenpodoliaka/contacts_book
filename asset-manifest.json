@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.js": "/contacts_book/static/js/main.2f190158.js",
+    "main.js": "/contacts_book/static/js/main.23a4d4b8.js",
     "static/js/983.939cbc32.chunk.js": "/contacts_book/static/js/983.939cbc32.chunk.js",
-    "static/js/726.813a4615.chunk.js": "/contacts_book/static/js/726.813a4615.chunk.js",
-    "static/js/931.830d370c.chunk.js": "/contacts_book/static/js/931.830d370c.chunk.js",
-    "static/js/975.70e412fd.chunk.js": "/contacts_book/static/js/975.70e412fd.chunk.js",
+    "static/js/726.4f3464c8.chunk.js": "/contacts_book/static/js/726.4f3464c8.chunk.js",
+    "static/js/931.a2421119.chunk.js": "/contacts_book/static/js/931.a2421119.chunk.js",
+    "static/js/975.b84f2c25.chunk.js": "/contacts_book/static/js/975.b84f2c25.chunk.js",
     "static/js/185.7f7af226.chunk.js": "/contacts_book/static/js/185.7f7af226.chunk.js",
     "static/js/234.b78e8dbf.chunk.js": "/contacts_book/static/js/234.b78e8dbf.chunk.js",
     "static/js/88.a58ef32d.chunk.js": "/contacts_book/static/js/88.a58ef32d.chunk.js",
     "index.html": "/contacts_book/index.html",
-    "main.2f190158.js.map": "/contacts_book/static/js/main.2f190158.js.map",
+    "main.23a4d4b8.js.map": "/contacts_book/static/js/main.23a4d4b8.js.map",
     "983.939cbc32.chunk.js.map": "/contacts_book/static/js/983.939cbc32.chunk.js.map",
-    "726.813a4615.chunk.js.map": "/contacts_book/static/js/726.813a4615.chunk.js.map",
-    "931.830d370c.chunk.js.map": "/contacts_book/static/js/931.830d370c.chunk.js.map",
-    "975.70e412fd.chunk.js.map": "/contacts_book/static/js/975.70e412fd.chunk.js.map",
+    "726.4f3464c8.chunk.js.map": "/contacts_book/static/js/726.4f3464c8.chunk.js.map",
+    "931.a2421119.chunk.js.map": "/contacts_book/static/js/931.a2421119.chunk.js.map",
+    "975.b84f2c25.chunk.js.map": "/contacts_book/static/js/975.b84f2c25.chunk.js.map",
     "185.7f7af226.chunk.js.map": "/contacts_book/static/js/185.7f7af226.chunk.js.map",
     "234.b78e8dbf.chunk.js.map": "/contacts_book/static/js/234.b78e8dbf.chunk.js.map",
     "88.a58ef32d.chunk.js.map": "/contacts_book/static/js/88.a58ef32d.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.2f190158.js"
+    "static/js/main.23a4d4b8.js"
   ]
 }
