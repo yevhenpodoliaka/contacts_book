@@ -7,18 +7,17 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Modal = ({ children, isOpen, toggleIsOpen }) => {
-
+const Modal = ({ children, isOpen, toggleIsOpen, setContactId }) => {
+  const onClose = () => {
+    setContactId(null);
+    toggleIsOpen();
+  };
   return (
-    <Dialog
-      open={isOpen}
-      onClose={toggleIsOpen}
-      TransitionComponent={Transition}
-    >
+    <Dialog open={isOpen} onClose={onClose} TransitionComponent={Transition}>
       <IconButton
         sx={{ width: '25px', height: '25px' }}
         color="inherit"
-        onClick={toggleIsOpen}
+        onClick={onClose}
         aria-label="close"
       >
         <CloseIcon />

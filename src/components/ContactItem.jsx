@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { Paper, Avatar, Typography, Box } from '@mui/material';
 
-import { Paper, Avatar, IconButton, Typography, Box } from '@mui/material';
-
-import CreateIcon from '@mui/icons-material/Create';
 import ToggledFavoriteButton from './ToggledFavoriteButton';
 import DeleteContactButton from './DeleteContactButton';
-import Modal from './Modal';
-import EditContactForm from './EditContactForm';
+import EditContactButton from './EditContactButton';
 
-const ContactItem = ({ id, name, phone, email, favorite }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const toggleModal = () => {
-    setModalIsOpen(!modalIsOpen);
-  };
+const ContactItem = ({
+  id,
+  name,
+  phone,
+  email,
+  favorite,
+  setContactId,
+  openModal,
+}) => {
 
   const firstLetter = name[0];
   return (
@@ -45,24 +45,14 @@ const ContactItem = ({ id, name, phone, email, favorite }) => {
           }}
         >
           <DeleteContactButton id={id} name={name} />
-
-          <IconButton
-            size="small"
-            color="primary"
-            aria-label="edit"
-            onClick={toggleModal}
-          >
-            <CreateIcon fontSize="inherit" />
-          </IconButton>
-
+          <EditContactButton
+            id={id}
+            setContactId={setContactId}
+            openModal={openModal}
+          />
           <ToggledFavoriteButton id={id} favorite={favorite} name={name} />
         </Box>
       </Paper>
-      {modalIsOpen && (
-        <Modal isOpen={modalIsOpen} toggleIsOpen={toggleModal}>
-          <EditContactForm id={id} />
-        </Modal>
-      )}
     </>
   );
 };

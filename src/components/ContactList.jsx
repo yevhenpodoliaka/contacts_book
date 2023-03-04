@@ -7,9 +7,8 @@ import {
 
 import { List, Typography } from '@mui/material';
 
-const ContactList = ({ data }) => {
+const ContactList = ({ data, setContactId,openModal }) => {
   let contacts = data;
-
 
   const filterValue = useSelector(getFilterValue);
 
@@ -38,6 +37,9 @@ const ContactList = ({ data }) => {
               phone={phone}
               email={email}
               favorite={favorite}
+              setContactId={setContactId}
+              openModal={openModal}
+              
             />
           ))
         ) : (
