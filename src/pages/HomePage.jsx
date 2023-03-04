@@ -8,15 +8,13 @@ export default function HomePage() {
   const isLoggedIn = useSelector(getIsLoggedIn);
 
   return (
-    <>
-      <>
-        {!isLoggedIn && (
-          <Typography>
-            Welcome!!! to work with the application you need to register or log
-            in
-          </Typography>
-        )}
-      </>
+    <main style={{ padding: "15px", margin: "65px 0 0" }}>
+      {!isLoggedIn && (
+        <Typography>
+          Welcome!!! to work with the application you need to register or log in
+        </Typography>
+      )}
+
       <Typography variant="button" display="block">
         Tools in this app
       </Typography>
@@ -33,6 +31,6 @@ export default function HomePage() {
 
         <SiMongodb fontSize={40} color="#116149" />
       </Box>
-    </>
+    </main>
   );
 }
