@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect,memo } from 'react';
 import toast from 'react-hot-toast';
 import IconButton from '@mui/material/IconButton';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -48,4 +48,4 @@ const ToggledFavoriteButton = ({ id, name, favorite }) => {
   );
 };
 
-export default ToggledFavoriteButton;
+export default memo(ToggledFavoriteButton);

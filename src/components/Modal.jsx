@@ -7,10 +7,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Modal = ({ children, isOpen, toggleIsOpen, setContactId }) => {
+const Modal = ({ children, isOpen,closeModal, setContactId }) => {
   const onClose = () => {
     setContactId(null);
-    toggleIsOpen();
+    closeModal();
   };
   return (
     <Dialog open={isOpen} onClose={onClose} TransitionComponent={Transition}>

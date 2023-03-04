@@ -4,7 +4,6 @@ import {
   getFilterValue,
   getShowFavoriteValue,
 } from '../redux/phoneBook/filterSlice';
-
 import { List, Typography } from '@mui/material';
 
 const ContactList = ({ data, setContactId,openModal }) => {
@@ -52,4 +51,5 @@ const ContactList = ({ data, setContactId,openModal }) => {
     </>
   );
 };
+
 export default ContactList;

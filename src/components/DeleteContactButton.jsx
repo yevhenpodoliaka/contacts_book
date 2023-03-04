@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import toast from 'react-hot-toast';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDeleteContactMutation } from '../redux/phoneBook/phoneBookApi';
 
 const DeleteContactButton = ({ id, name }) => {
-
   const [
     deleteContact,
     {
@@ -37,5 +36,4 @@ const DeleteContactButton = ({ id, name }) => {
   );
 };
 
-
-export default DeleteContactButton;
+export default memo(DeleteContactButton);

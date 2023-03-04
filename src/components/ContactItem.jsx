@@ -1,5 +1,5 @@
+import { memo } from "react"
 import { Paper, Avatar, Typography, Box } from '@mui/material';
-
 import ToggledFavoriteButton from './ToggledFavoriteButton';
 import DeleteContactButton from './DeleteContactButton';
 import EditContactButton from './EditContactButton';
@@ -13,7 +13,7 @@ const ContactItem = ({
   setContactId,
   openModal,
 }) => {
-
+  
   const firstLetter = name[0];
   return (
     <>
@@ -56,4 +56,4 @@ const ContactItem = ({
     </>
   );
 };
-export default ContactItem;
+export default memo(ContactItem);

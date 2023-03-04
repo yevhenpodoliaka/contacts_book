@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useGetContactsQuery } from '../redux/phoneBook/phoneBookApi';
 import ContactList from '../components/ContactList';
 import Filter from 'components/Filter';
@@ -9,10 +9,16 @@ import EditContactForm from 'components/EditContactForm';
 
 const ContactListPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [ editableContactId, setEditableContactId] = useState(null)
-  const toggleModal = () => {
-    setModalIsOpen(!modalIsOpen);
-  };
+  const [editableContactId, setEditableContactId] = useState(null);
+
+  const openModal = useCallback(() => {
+    setModalIsOpen(true);
+  }, []);
+  const closeModal = useCallback(() => {
+    setModalIsOpen(false);
+  }, []);
+
+
   const { data } = useGetContactsQuery();
   const contacts = data?.data.result;
 
@@ -23,14 +29,14 @@ const ContactListPage = () => {
         <ContactList
           data={contacts}
           setContactId={setEditableContactId}
-          openModal={toggleModal}
+          openModal={openModal}
         />
       </main>
-      <BottomAppBar onOpenModal={toggleModal} />
+      <BottomAppBar onOpenModal={openModal} />
       {modalIsOpen && (
         <Modal
           isOpen={modalIsOpen}
-          toggleIsOpen={toggleModal}
+          closeModal={closeModal}
           setContactId={setEditableContactId}
         >
           {editableContactId ? (
