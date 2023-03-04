@@ -24,8 +24,8 @@ const ContactListPage = () => {
 
   return (
     <>
+      {contacts?.length > 5 && <Filter />}
       <main style={{ padding: '15px', margin: '65px 0' }}>
-        {contacts?.length > 5 && <Filter />}
         <ContactList
           data={contacts}
           setContactId={setEditableContactId}

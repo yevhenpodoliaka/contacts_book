@@ -6,7 +6,7 @@ import {
 } from '../redux/phoneBook/filterSlice';
 import { List, Typography } from '@mui/material';
 
-const ContactList = ({ data, setContactId,openModal }) => {
+const ContactList = ({ data, setContactId, openModal }) => {
   let contacts = data;
 
   const filterValue = useSelector(getFilterValue);
@@ -18,8 +18,11 @@ const ContactList = ({ data, setContactId,openModal }) => {
 
   const getVisibleContacts = () => {
     const normalizedFilter = filterValue.toLowerCase();
-    return contacts?.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+    const normalizedNumber = filterValue.replace(/\D/g, '');
+    return contacts?.filter(
+      contact =>
+        contact.name.toLowerCase().includes(normalizedFilter) ||
+        contact.phone.replace(/\D/g, '').includes(normalizedNumber)
     );
   };
   const visibleContacts = getVisibleContacts();
@@ -38,7 +41,6 @@ const ContactList = ({ data, setContactId,openModal }) => {
               favorite={favorite}
               setContactId={setContactId}
               openModal={openModal}
-              
             />
           ))
         ) : (

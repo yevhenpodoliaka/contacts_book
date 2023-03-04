@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter, getFilterValue } from '../redux/phoneBook/filterSlice';
 import { Paper, InputBase } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import{memo}from "react"
 
 
@@ -12,12 +13,23 @@ import{memo}from "react"
    };
    
    return (
-     <Paper>
+     <Paper
+       sx={{
+         position: 'sticky',
+         top: '65px',
+         zIndex: '555',
+         backgroundColor: '#1976d2',
+         display: 'flex',
+         alignItems: 'center',
+       }}
+     >
+       <SearchIcon color="secondary" sx={{ ml:"8px"}} />
        <InputBase
          component="form"
          value={value}
          onChange={onChangeFilter}
-         placeholder=" Find contacts by name "
+         placeholder=" Find contacts by name or number "
+         sx={{ color: 'white', px: '8px', width: '100%' }}
        />
      </Paper>
    );
