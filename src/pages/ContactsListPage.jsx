@@ -9,7 +9,7 @@ import EditContactForm from 'components/EditContactForm';
 
 const ContactListPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [ EditableContactId, setEditableContactId] = useState(null)
+  const [ editableContactId, setEditableContactId] = useState(null)
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
@@ -18,12 +18,14 @@ const ContactListPage = () => {
 
   return (
     <>
-      {contacts?.length > 5 && <Filter />}
-      <ContactList
-        data={contacts}
-        setContactId={setEditableContactId}
-        openModal={toggleModal}
-      />
+      <main style={{ padding: '15px', margin: '65px 0' }}>
+        {contacts?.length > 5 && <Filter />}
+        <ContactList
+          data={contacts}
+          setContactId={setEditableContactId}
+          openModal={toggleModal}
+        />
+      </main>
       <BottomAppBar onOpenModal={toggleModal} />
       {modalIsOpen && (
         <Modal
@@ -31,8 +33,8 @@ const ContactListPage = () => {
           toggleIsOpen={toggleModal}
           setContactId={setEditableContactId}
         >
-          {EditableContactId ? (
-            <EditContactForm id={EditableContactId} />
+          {editableContactId ? (
+            <EditContactForm id={editableContactId} />
           ) : (
             <AddContactForm />
           )}

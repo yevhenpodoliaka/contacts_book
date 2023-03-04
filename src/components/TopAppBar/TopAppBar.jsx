@@ -10,7 +10,7 @@ const TopAppBar = () => {
   return (
     <>
       <AppBar
-        component="nav"
+        component="header"
         sx={{
           position: 'fixed',
           top: 0,
@@ -21,7 +21,9 @@ const TopAppBar = () => {
           gap: 8,
         }}
       >
-        <Toolbar>{isLoggedIn ? <UserMenu /> : <AuthNav />}</Toolbar>
+        <Toolbar>
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        </Toolbar>
       </AppBar>
     </>
   );

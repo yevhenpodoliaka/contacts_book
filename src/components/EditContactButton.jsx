@@ -2,6 +2,7 @@ import { IconButton } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 
 const EditContactButton = ({ openModal, setContactId, id }) => {
+  
   const handelClick = () => {
     setContactId(id);
     openModal();

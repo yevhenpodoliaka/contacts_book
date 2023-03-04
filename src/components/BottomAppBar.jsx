@@ -25,7 +25,12 @@ const BottomAppBar = ({ onOpenModal }) => {
 
   return (
     <>
-      <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
+      <AppBar
+        position="fixed"
+        color="primary"
+        sx={{ top: 'auto', bottom: 0 }}
+        component="footer"
+      >
         <Toolbar>
           <IconButton
             color="inherit"
